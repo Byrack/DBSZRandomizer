@@ -22,6 +22,9 @@ namespace DBSZRandomizer
 
         bool turn = false;
 
+        string name1;
+        string name2;
+
         private void checkBox26_CheckedChanged(object sender, EventArgs e)
         {
             // Från serien
@@ -48,23 +51,24 @@ namespace DBSZRandomizer
         {
             Random random = new Random();
 
-            if (!MovSagaToggle.Checked)
-            {
-                foreach (string movie in movies)
-                {
-                    sagas.Add(movie);
-                }
-            }
-            else
+            if (MovSagaToggle.Checked)
             {
                 foreach (string movie in movies)
                 {
                     sagas.Remove(movie);
                 }
             }
+            else
+            {
+                foreach (string movie in movies)
+                {
+                    sagas.Add(movie);
+                }
+            }
 
             if (sagas.Count >= 2)
             {
+                int RandomMov = random.Next(movies.Count);
                 int Random1 = random.Next(sagas.Count);
                 int Random2;
                 do
@@ -72,8 +76,17 @@ namespace DBSZRandomizer
                     Random2 = random.Next(sagas.Count);
                 } while (Random1 == Random2);
 
-                string name1 = sagas[Random1];
-                string name2 = sagas[Random2];
+
+                if (MovSagaToggle.Checked)
+                {
+                    name1 = movies[RandomMov];
+                    name2 = sagas[Random2];
+                }
+                else
+                {
+                    name1 = sagas[Random1];
+                    name2 = sagas[Random2];
+                }
 
                 // ger ut filmen/sagan
                 if (MovSagaToggle.Checked)
@@ -88,8 +101,8 @@ namespace DBSZRandomizer
                         }
                         else if (turn == false)
                         {
-                            label5.Text = name1;
-                            label4.Text = name2;
+                            label5.Text = name2;
+                            label4.Text = name1;
                             turn = true;
                         }
                     }
