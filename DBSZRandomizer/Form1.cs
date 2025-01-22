@@ -19,11 +19,6 @@ namespace DBSZRandomizer
 
         List<string> sagas = new List<string>();
 
-        private void checkBox26_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void checkBox26_CheckedChanged(object sender, EventArgs e)
         {
             if (sender is CheckBox checkBox)
