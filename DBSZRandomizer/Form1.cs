@@ -17,11 +17,34 @@ namespace DBSZRandomizer
             InitializeComponent();
         }
 
-        List<saga> sagas = new List<saga>();
+        List<string> sagas = new List<string>();
 
         private void checkBox26_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void checkBox26_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is CheckBox checkBox)
+            {
+                string tagValue = checkBox.Tag.ToString();
+
+                if (checkBox.Checked)
+                {
+                    if (!sagas.Contains(tagValue))
+                    {
+                        sagas.Add(tagValue);
+                    }
+                }
+                else
+                {
+                    if (sagas.Contains(tagValue))
+                    {
+                        sagas.Remove(tagValue);
+                    }
+                }
+            }
         }
     }
 }
