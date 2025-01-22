@@ -460,6 +460,7 @@
             this.button1.TabIndex = 35;
             this.button1.Text = "Randomize";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -468,7 +469,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(181, 46);
             this.label4.TabIndex = 36;
-            this.label4.Text = "label4";
+            this.label4.Text = "Player 2";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -478,7 +479,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(181, 46);
             this.label5.TabIndex = 37;
-            this.label5.Text = "label5";
+            this.label5.Text = "Player 1";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -534,8 +535,10 @@
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "DBSZ Randomizer";
             this.ResumeLayout(false);
             this.PerformLayout();
 

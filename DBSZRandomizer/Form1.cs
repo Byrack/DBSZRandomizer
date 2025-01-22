@@ -23,22 +23,49 @@ namespace DBSZRandomizer
         {
             if (sender is CheckBox checkBox)
             {
-                string tagValue = checkBox.Tag.ToString();
-
                 if (checkBox.Checked)
                 {
-                    if (!sagas.Contains(tagValue))
+                    if (!sagas.Contains(checkBox.Text))
                     {
-                        sagas.Add(tagValue);
+                        sagas.Add(checkBox.Text);
                     }
                 }
                 else
                 {
-                    if (sagas.Contains(tagValue))
+                    if (sagas.Contains(checkBox.Text))
                     {
-                        sagas.Remove(tagValue);
+                        sagas.Remove(checkBox.Text);
                     }
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+
+            if (sagas.Count > 2)
+            {
+                int Random1 = random.Next(sagas.Count);
+                int Random2;
+                do
+                {
+                    Random2 = random.Next(sagas.Count);
+                } while (Random1 == Random2);
+
+                string name1 = sagas[Random1];
+                string name2 = sagas[Random2];
+
+                label5.Text = name1;
+                label4.Text = name2;
+            }
+            else if (sagas.Count < 2 && sagas.Count > 0)
+            {
+                MessageBox.Show("du måste välja mer än 1, tjokis");
+            }
+            else
+            {
+                MessageBox.Show("Välj nåt retard");
             }
         }
     }
